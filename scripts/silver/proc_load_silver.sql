@@ -9,6 +9,10 @@ Script Purpose:
       - Inserts transformed and cleansed data from bronze to silver tables.
 */
 
+--execute the stored procedure instead of running multiple queries
+EXEC sp.load_silver
+          
+--create stored procedure for loading the bronze layer
 CREATE OR ALTER PROCEDURE sp.load_silver AS
 BEGIN
       -- dimesion tables
