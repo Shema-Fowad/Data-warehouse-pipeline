@@ -25,8 +25,6 @@ if object_id('dim.dim_category' , 'U') is not null
 create table dim.dim_category (
 	category_key		int identity primary key,
 	category_id			varchar(20),
-	category_name		varchar(50),
-	category_manager	varchar(50),
 );
 go
 
@@ -53,20 +51,32 @@ create table dim.dim_date (
 );
 go
 
+	
 -- 2. FACTS TABLE
 
 if object_id('fact.fact_procurement_spend' , 'U') is not null
   drop table fact.fact_procurement_spend;
-create table fact.fact_procurement_spend(
-	invoice_line_id			varchar(20) primary key,
-	vendor_key				int,
-	category_key			int,
-	region_key				int,
-	date_key				int,
-	contract_id				varchar(20),
-	spend_amount			decimal(18,2),
-	is_contract_compliant	bit
-); 
+
+CREATE TABLE fact.fact_procurement_spend (
+    fact_procurement_spend_key INT IDENTITY(1,1) PRIMARY KEY,
+
+    -- Business (degenerate) keys
+    invoice_id        VARCHAR(20) NOT NULL,
+    invoice_line_id   VARCHAR(20) NOT NULL,
+
+    -- Dimension keys
+    vendor_key        INT NOT NULL,
+    category_key      INT NOT NULL,
+    region_key        INT NOT NULL,
+    date_key          INT NOT NULL,
+
+    -- Contract
+    contract_id       VARCHAR(20) NULL,
+
+    -- Measures
+    spend_amount      DECIMAL(18,2) NOT NULL,
+    is_contract_compliant BIT NOT NULL,
+);
 go
 
 
