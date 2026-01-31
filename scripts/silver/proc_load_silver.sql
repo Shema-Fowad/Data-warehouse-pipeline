@@ -18,126 +18,234 @@ BEGIN
       -- dimesion tables
       -- i. vendor dimension
       
-      TRUNCATE TABLE dim.dim_vendor;
-      
-      INSERT INTO dim.dim_vendor (vendor_id, vendor_name, vendor_tier, region_id, active_flag)
-      SELECT DISTINCT
-          vendor_id,
-          vendor_name,
-          vendor_tier,
-          region_id,
-          active_flag
-      FROM raw_vendor.vendors;
-      
+                    TRUNCATE TABLE dim.dim_vendor;
+                    INSERT INTO dim.dim_vendor
+                    SELECT
+                        UPPER(LTRIM(RTRIM(v.vendor_id)))              AS vendor_id,
+                        NULLIF(LTRIM(RTRIM(v.vendor_name)), '')       AS vendor_name,
+                        UPPER(NULLIF(LTRIM(RTRIM(v.vendor_tier)), '')) AS vendor_tier,
+                        CASE 
+                            WHEN UPPER(LTRIM(RTRIM(v.region_id))) IN ('APAC','EMEA','NA','LATAM')
+                                THEN UPPER(LTRIM(RTRIM(v.region_id)))
+                            ELSE 'UNKNOWN'
+                        END                                           AS region_id,
+                        CASE 
+                            WHEN UPPER(v.active_flag) = 'Y' THEN 1
+                            ELSE 0
+                        END                                           AS active_flag
+                    FROM raw_vendor.vendors v;
+                    
+                    
+                    select *
+                    from dim.dim_vendor
+          
       -- ii. region dimension
-      TRUNCATE TABLE dim.dim_region;
+
+
+                              TRUNCATE TABLE dim.dim_region;
       
-      insert into dim.dim_region(region_id, region_name)
-      select distinct
-      region_id,
-      region_id
-      from raw_vendor.vendors
+                              INSERT INTO dim.dim_region
+                              SELECT DISTINCT
+                                  region_id,
+                                  CASE region_id
+                                      WHEN 'APAC' THEN 'Asia Pacific'
+                                      WHEN 'EMEA' THEN 'Europe Middle East Africa'
+                                      WHEN 'NA'   THEN 'North America'
+                                      WHEN 'LATAM'THEN 'Latin America'
+                                      ELSE 'Unknown'
+                                  END AS region_name
+                              FROM (
+                                  SELECT UPPER(LTRIM(RTRIM(region_id))) AS region_id
+                                  FROM raw_vendor.vendors
+                              ) r;
+                              
+                              select *
+                              from dim.dim_region
       
       -- iii. category dimension
       
-      TRUNCATE TABLE dim.dim_category;
-      
-      insert into dim.dim_category (category_id, category_name, category_manager)
-      values
-      ('CAT01', 'Raw Materials', 'John Smith'),
-      ('CAT02', 'Packaging', 'Anita Rao'),
-      ('CAT03', 'Logistics', 'Michael Chen');
-      
+                              TRUNCATE TABLE dim.dim_category;
+                              
+                              INSERT INTO dim.dim_category
+                              SELECT DISTINCT
+                                  UPPER(LTRIM(RTRIM(category_id))) AS category_id
+                              FROM raw_erp.purchase_orders
+                              WHERE category_id IS NOT NULL;
+                              
+                              select *
+                              from dim.dim_category
+                                    
       -- iv. date dimension
       
-      TRUNCATE TABLE dim.dim_date;
-      
-      INSERT INTO dim.dim_date
-      SELECT DISTINCT
-          CONVERT(INT, FORMAT(d, 'yyyyMMdd')) AS date_key,
-          d,
-          YEAR(d),
-          MONTH(d),
-          DATENAME(month, d),
-          DATEPART(quarter, d)
-      FROM (
-          SELECT invoice_date AS d FROM raw_erp.invoices
-          UNION
-          SELECT contract_start FROM raw_contract.contracts
-      ) x;
-      
+                                    TRUNCATE TABLE dim.dim_date;
+                              
+                              
+                                    INSERT INTO dim.dim_date
+                                    SELECT DISTINCT
+                                        CONVERT(INT, FORMAT(d, 'yyyyMMdd')) AS date_key,
+                                        d,
+                                        YEAR(d),
+                                        MONTH(d),
+                                        DATENAME(month, d),
+                                        DATEPART(quarter, d)
+                                    FROM (
+                                        SELECT invoice_date AS d FROM raw_erp.invoices
+                                        UNION
+                                        SELECT contract_start FROM raw_contract.contracts
+                                    ) x;
+                              
+                                        select *
+                                        from dim.dim_date
+
       -- facts tables
       
       -- i. procurement spend
       
-      TRUNCATE TABLE fact.fact_procurement_spend;
-      
-      INSERT INTO fact.fact_procurement_spend
-      SELECT
-          invoice_line_id,
-          vendor_key,
-          category_key,
-          region_key,
-          date_key,
-          contract_id,
-          invoice_amount,
-          is_contract_compliant
-      FROM (
-          SELECT
-              i.invoice_line_id,
-              v.vendor_key,
-              c.category_key,
-              r.region_key,
-              d.date_key,
-              ct.contract_id,
-              i.invoice_amount,
-              CASE 
-                  WHEN ct.contract_id IS NOT NULL THEN 1 ELSE 0 
-              END AS is_contract_compliant,
-              ROW_NUMBER() OVER (
-                  PARTITION BY i.invoice_line_id
-                  ORDER BY 
-                      i.invoice_date DESC,
-                      ct.contract_start DESC
-              ) AS rn
-          FROM raw_erp.invoices i
-          JOIN raw_erp.purchase_orders po
-              ON i.po_id = po.po_id
-          JOIN dim.dim_vendor v
-              ON i.vendor_id = v.vendor_id
-          JOIN dim.dim_category c
-              ON po.category_id = c.category_id
-          JOIN dim.dim_region r
-              ON po.region_id = r.region_id
-          JOIN dim.dim_date d
-              ON i.invoice_date = d.full_date
-          LEFT JOIN raw_contract.contracts ct
-              ON i.vendor_id = ct.vendor_id
-             AND po.category_id = ct.category_id
-             AND i.invoice_date BETWEEN ct.contract_start AND ct.contract_end
-          WHERE i.invoice_status = 'POSTED'
-      ) x
-      WHERE rn = 1;
+                                        -- grain: One record per invoice line per day
+                                        TRUNCATE TABLE fact.fact_procurement_spend;
+                                        
+                                        INSERT INTO fact.fact_procurement_spend (
+                                            invoice_id,
+                                            invoice_line_id,
+                                            vendor_key,
+                                            category_key,
+                                            region_key,
+                                            date_key,
+                                            contract_id,
+                                            spend_amount,
+                                            is_contract_compliant
+                                        )
+                                        SELECT
+                                            UPPER(LTRIM(RTRIM(i.invoice_id)))        AS invoice_id,
+                                            UPPER(LTRIM(RTRIM(i.invoice_line_id)))  AS invoice_line_id,
+                                        
+                                            dv.vendor_key,
+                                            dc.category_key,
+                                            dr.region_key,
+                                            dd.date_key,
+                                        
+                                            c.contract_id,
+                                        
+                                            CASE
+                                                WHEN i.invoice_amount IS NULL OR i.invoice_amount < 0
+                                                    THEN 0
+                                                ELSE i.invoice_amount
+                                            END AS spend_amount,
+                                        
+                                            CASE
+                                                WHEN c.contract_id IS NOT NULL THEN 1
+                                                ELSE 0
+                                            END AS is_contract_compliant
+                                        
+                                        FROM raw_erp.invoices i
+                                        
+                                        LEFT JOIN raw_erp.purchase_orders p
+                                            ON UPPER(LTRIM(RTRIM(i.po_id))) = UPPER(LTRIM(RTRIM(p.po_id)))
+                                        
+                                        LEFT JOIN dim.dim_vendor dv
+                                            ON dv.vendor_id = UPPER(LTRIM(RTRIM(i.vendor_id)))
+                                        
+                                        LEFT JOIN dim.dim_category dc
+                                            ON dc.category_id = UPPER(LTRIM(RTRIM(p.category_id)))
+                                        
+                                        LEFT JOIN dim.dim_region dr
+                                            ON dr.region_id = UPPER(LTRIM(RTRIM(p.region_id)))
+                                        
+                                        JOIN dim.dim_date dd
+                                            ON dd.full_date = i.invoice_date
+                                        
+                                        LEFT JOIN raw_contract.contracts c
+                                            ON UPPER(LTRIM(RTRIM(p.vendor_id)))   = UPPER(LTRIM(RTRIM(c.vendor_id)))
+                                           AND UPPER(LTRIM(RTRIM(p.category_id))) = UPPER(LTRIM(RTRIM(c.category_id)))
+                                           AND i.invoice_date BETWEEN c.contract_start AND c.contract_end
+                                        
+                                        -- Data quality gate
+                                        WHERE i.invoice_id IS NOT NULL
+                                          AND i.invoice_line_id IS NOT NULL
+                                          AND category_key is not null
+                                          and region_key is not null
+                                          and vendor_key is not null;
+                                        
+                                        select *
+                                        from fact.fact_procurement_spend;
       
       
       -- ii. load budget vs actual fact
       
-      TRUNCATE TABLE fact.fact_budget_vs_actual;
-      
-      INSERT INTO fact.fact_budget_vs_actual
-      SELECT
-          c.category_key,
-          r.region_key,
-          d.date_key,
-          bf.budgeted_spend,
-          SUM(f.spend_amount) AS actual_spend
-      FROM raw_finance.budget_forecast bf
-      JOIN dim.dim_category c ON bf.category_id = c.category_id
-      JOIN dim.dim_region r ON bf.region_id = r.region_id
-      JOIN dim.dim_date d ON bf.month = d.full_date
-      LEFT JOIN fact.fact_procurement_spend f
-          ON f.category_key = c.category_key
-          AND f.region_key = r.region_key
-      GROUP BY
-          c.category_key, r.region_key, d.date_key, bf.budgeted_spend;
+                                        TRUNCATE TABLE fact.fact_budget_vs_actual;
+                                        
+                                        INSERT INTO fact.fact_budget_vs_actual (
+                                            category_key,
+                                            region_key,
+                                            date_key,
+                                            budgeted_spend,
+                                            actual_spend
+                                        )
+                                        SELECT
+                                            dc.category_key,
+                                            dr.region_key,
+                                            dd.date_key,
+                                        
+                                            ISNULL(b.budgeted_spend, 0)        AS budgeted_spend,
+                                            ISNULL(SUM(f.spend_amount), 0)     AS actual_spend
+                                        
+                                        FROM raw_finance.budget_forecast b
+                                        
+                                        -- Date resolution (month grain)
+                                        JOIN dim.dim_date dd
+                                            ON dd.full_date = b.month
+                                        
+                                        -- Dimension lookups (natural → surrogate)
+                                        LEFT JOIN dim.dim_category dc
+                                            ON dc.category_id = UPPER(LTRIM(RTRIM(b.category_id)))
+                                        
+                                        LEFT JOIN dim.dim_region dr
+                                            ON dr.region_id = UPPER(LTRIM(RTRIM(b.region_id)))
+                                        
+                                        -- Actual spend from fact table (already keyed)
+                                        LEFT JOIN fact.fact_procurement_spend f
+                                            ON f.category_key = dc.category_key
+                                           AND f.region_key   = dr.region_key
+                                           AND f.date_key     = dd.date_key
+                                        
+                                        GROUP BY
+                                            dc.category_key,
+                                            dr.region_key,
+                                            dd.date_key,
+                                            b.budgeted_spend;
+                                        
+                                        
+                                        select *
+                                        from fact.fact_budget_vs_actual;
+
+-- iii). load fact.fact_contract_savings
+
+                                        -- grain: One record per contract per month
+                                        
+                                        TRUNCATE TABLE fact.fact_contract_savings;
+                                        
+                                        INSERT INTO fact.fact_contract_savings
+                                        SELECT
+                                            UPPER(LTRIM(RTRIM(c.contract_id)))        AS contract_id,
+                                            d.date_key                                AS date_key,
+                                        
+                                            ROUND(
+                                                ISNULL(c.negotiated_savings, 0) /
+                                                NULLIF(DATEDIFF(MONTH, c.contract_start, c.contract_end) + 1, 0),
+                                                2
+                                            )                                         AS projected_savings,
+                                            -- Realized savings & it comes from actual transactional behavior so it's zero.
+                                            0                                         AS realized_savings
+                                        
+                                        FROM raw_contract.contracts c
+                                        
+                                        JOIN dim.dim_date d
+                                            ON d.full_date >= DATEFROMPARTS(YEAR(c.contract_start), MONTH(c.contract_start), 1)
+                                           AND d.full_date <= DATEFROMPARTS(YEAR(c.contract_end),   MONTH(c.contract_end),   1)
+                                           AND d.full_date = DATEFROMPARTS(YEAR(d.full_date), MONTH(d.full_date), 1);
+                                        
+                                           
+                                        select *
+                                        from fact.fact_contract_savings;
+
 END
