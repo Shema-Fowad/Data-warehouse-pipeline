@@ -1,0 +1,501 @@
+vendor_id,vendor_name,vendor_tier,region_id,active_flag
+V001,Vendor 1,Strategic,NA,N
+V002, Vendor 2,Preferred ,LATAM,Y
+V003,Vendor  3,preferred,EMEA,N
+V004,Vendor  4, Strategic,APAC,Y
+V005,Vendor 5,PREFERRED,NA,
+V006,Vendor 6, Tactical,APAC,Y
+V007, Vendor 7,Strategic, EMEA,y
+V008,VENDOR 8,Preferred,EMEA,N
+V009, Vendor 9,Tactical, LATAM,y
+V010,Vendor  10,Preferred,LATAM,y
+V011, Vendor 11,Tactical,latam,
+V012,Vendor 12 ,preferred,emea,
+V013,Vendor 13,Tactical ,APAC,Y
+V014, Vendor 14,tactical,na,Y
+V015,Vendor 15 ,Preferred,NA,N
+V016, Vendor 16, Strategic,EMEA,y
+V017,Vendor 17 ,Tactical,LATAM,
+V018,vendor 18,Preferred,APAC,
+V019,Vendor 19,Preferred,latam,N
+V020,Vendor 20 ,Preferred,EMEA,
+V021,Vendor  21,tactical,latam,y
+V022,Vendor 22,STRATEGIC,latam,y
+V023,vendor 23,Preferred,LATAM,N
+V024,Vendor 24 ,preferred,EMEA ,y
+V025,VENDOR 25,strategic,APAC,Y
+V026,Vendor 26 ,Tactical,LATAM,y
+V027,Vendor  27,Preferred ,EMEA,Y
+V028,Vendor  28,preferred,apac,
+V029,Vendor 29 ,Tactical ,LATAM,Y
+V030,Vendor 30,tactical,EMEA ,N
+V031,Vendor 31,Preferred,EMEA,N
+V032,vendor 32,Preferred,APAC,N
+V033,Vendor 33 ,Tactical,LATAM,N
+V034,Vendor 34 , Tactical,EMEA,N
+V035,Vendor 35 ,Tactical,APAC,y
+V036,Vendor  36,Tactical,APAC,
+V037,VENDOR 37,Preferred ,LATAM,Y
+V038,VENDOR 38,,EMEA,Y
+V039, Vendor 39,Strategic ,APAC ,
+V040,Vendor 40 ,PREFERRED,EMEA,N
+V041,Vendor  41,Preferred,NA,N
+V042, Vendor 42,Strategic, NA,Y
+V043,Vendor 43,TACTICAL,EMEA ,N
+V044,Vendor 44,TACTICAL,APAC,y
+V045,Vendor 45,Strategic,emea,y
+V046,vendor 46,Preferred,LATAM ,y
+V047, Vendor 47,strategic,LATAM ,
+V048,VENDOR 48, Preferred,LATAM ,
+V049,Vendor 49 ,Strategic ,LATAM,y
+V050,vendor 50,tactical, LATAM,
+V051,Vendor  51,Tactical, NA,y
+V052,Vendor 52 ,preferred,LATAM,N
+V053,Vendor  53,preferred,LATAM,
+V054,Vendor 54 ,Tactical ,EMEA ,y
+V055,vendor 55,Tactical,EMEA,
+V056,vendor 56,Tactical,LATAM,Y
+V057, Vendor 57,Tactical,emea,Y
+V058,Vendor 58,TACTICAL, APAC,y
+V059,Vendor 59,Tactical ,EMEA,y
+V060,Vendor  60,Strategic ,NA,y
+V061,Vendor  61,STRATEGIC,EMEA,Y
+V062,Vendor 62,Preferred,APAC,
+V063,VENDOR 63, Tactical,LATAM,Y
+V064,VENDOR 64,Tactical, EMEA,y
+V065,VENDOR 65,,na,y
+V066,Vendor 66,Preferred ,LATAM ,y
+V067,Vendor 67,Tactical ,NA,y
+V068,VENDOR 68, Preferred,LATAM,y
+V069,Vendor 69,STRATEGIC,LATAM ,y
+V070,Vendor 70,Preferred ,emea,N
+V071, Vendor 71,Strategic, APAC,N
+V072,Vendor  72,Preferred ,EMEA,N
+V073,Vendor 73 ,Tactical, LATAM,Y
+V074,Vendor 74,Strategic,NA,
+V075,Vendor 75, Strategic,EMEA,y
+V076,Vendor 76 ,tactical,NA,N
+V077,VENDOR 77,Tactical,LATAM,Y
+V078, Vendor 78,PREFERRED,LATAM,
+V079, Vendor 79,Strategic,NA,y
+V080,Vendor 80,TACTICAL,LATAM,y
+V081,Vendor 81,Preferred ,APAC,
+V082,vendor 82,strategic,APAC,
+V083,Vendor 83 ,STRATEGIC,apac,
+V084,Vendor 84, Preferred, EMEA,Y
+V085, Vendor 85,Tactical,APAC,N
+V086,VENDOR 86,Preferred ,EMEA ,y
+V087,Vendor 87, Tactical,APAC,N
+V088,Vendor 88,Strategic ,LATAM,
+V089,Vendor 89, Preferred,apac,y
+V090, Vendor 90,tactical,APAC,y
+V091,vendor 91,Preferred,NA ,N
+V092, Vendor 92,tactical,APAC,N
+V093,Vendor 93, Tactical, LATAM,y
+V094, Vendor 94,Preferred,APAC,Y
+V095,Vendor 95,Preferred ,EMEA,
+V096, Vendor 96, Strategic,NA ,N
+V097,vendor 97, Preferred,latam,y
+V098,Vendor  98,Preferred,LATAM,N
+V099,VENDOR 99,Preferred,EMEA,y
+V100, Vendor 100,Preferred ,APAC,Y
+V101,Vendor 101 ,Strategic,apac,N
+V102,VENDOR 102, Preferred,LATAM,y
+V103, Vendor 103,Tactical,APAC,N
+V104,Vendor  104, Strategic,LATAM,y
+V105, Vendor 105, Strategic,NA,
+V106,Vendor 106,STRATEGIC,APAC,y
+V107,Vendor 107,Strategic,EMEA,y
+V108,Vendor 108 , Strategic,LATAM,y
+V109, Vendor 109,,NA,y
+V110,Vendor  110,STRATEGIC,APAC,
+V111,VENDOR 111,Preferred, NA,Y
+V112, Vendor 112, Tactical,EMEA,
+V113,Vendor 113,Strategic,LATAM ,Y
+V114,Vendor 114,Strategic,EMEA,Y
+V115,vendor 115, Strategic,LATAM,
+V116,vendor 116,Tactical,NA,N
+V117,Vendor  117,tactical,EMEA,Y
+V118,Vendor  118,Preferred,APAC ,
+V119,Vendor 119,PREFERRED, APAC,y
+V120,Vendor  120,Strategic,APAC,
+V121,Vendor 121,tactical,LATAM ,Y
+V122, Vendor 122,Tactical,APAC,N
+V123,vendor 123,preferred,LATAM ,N
+V124, Vendor 124,Tactical,LATAM,N
+V125, Vendor 125,Preferred,LATAM,y
+V126,Vendor 126,Preferred,NA,
+V127,Vendor 127,Strategic, APAC,
+V128,Vendor 128,Tactical ,LATAM,N
+V129,VENDOR 129,PREFERRED,EMEA ,y
+V130,Vendor 130,PREFERRED,NA,N
+V131,Vendor 131,Preferred,NA,Y
+V132,vendor 132,Strategic,NA,
+V133, Vendor 133, Tactical,EMEA,y
+V134,Vendor 134, Preferred,LATAM,N
+V135,Vendor 135,preferred,NA,y
+V136,Vendor 136 ,Preferred,NA,Y
+V137,Vendor 137,Preferred,NA,Y
+V138,vendor 138, Preferred,APAC,
+V139,Vendor  139,Tactical, EMEA,y
+V140,VENDOR 140,Strategic,LATAM ,N
+V141,vendor 141,Preferred, NA,N
+V142,Vendor 142 ,PREFERRED,APAC ,N
+V143,Vendor 143,STRATEGIC,LATAM,
+V144,VENDOR 144,Tactical, APAC,Y
+V145,Vendor 145 ,Preferred, LATAM,N
+V146,VENDOR 146,Preferred,LATAM ,
+V147,Vendor 147,STRATEGIC,APAC ,
+V148,Vendor 148,PREFERRED,LATAM ,
+V149,Vendor 149,Tactical,LATAM,
+V150,Vendor 150,Preferred,EMEA,
+V151,Vendor  151,Preferred , EMEA,
+V152,vendor 152,STRATEGIC,LATAM ,Y
+V153,VENDOR 153,Strategic,LATAM,Y
+V154,VENDOR 154,Tactical,EMEA ,N
+V155,Vendor 155,Tactical,LATAM,y
+V156,VENDOR 156,Tactical,EMEA,Y
+V157,Vendor 157 , Tactical,EMEA,y
+V158, Vendor 158,Preferred ,apac,N
+V159,Vendor 159 , Preferred,EMEA ,Y
+V160,vendor 160,strategic,APAC,Y
+V161,Vendor  161,Strategic, LATAM,N
+V162,Vendor 162 ,STRATEGIC,NA,N
+V163,Vendor 163,strategic,EMEA,y
+V164,VENDOR 164,Preferred ,LATAM,y
+V165,Vendor 165,TACTICAL,LATAM,N
+V166, Vendor 166,Tactical,LATAM,Y
+V167, Vendor 167,STRATEGIC,NA,
+V168,Vendor 168,Strategic , APAC,y
+V169,Vendor 169 ,preferred,NA,N
+V170,vendor 170,Tactical ,APAC,Y
+V171,Vendor  171,Strategic,LATAM ,Y
+V172,Vendor 172,Preferred ,LATAM,y
+V173,Vendor 173,tactical,NA,y
+V174,VENDOR 174,Tactical,emea,
+V175,Vendor  175,STRATEGIC,LATAM,y
+V176, Vendor 176,Strategic ,EMEA,
+V177,Vendor 177,Strategic,latam,N
+V178, Vendor 178,Preferred,APAC,y
+V179,VENDOR 179,strategic,EMEA ,
+V180,Vendor 180 ,STRATEGIC,LATAM,y
+V181,Vendor  181,TACTICAL,LATAM,N
+V182,VENDOR 182,Tactical,latam,N
+V183,Vendor 183,Preferred,NA,
+V184,Vendor  184,Preferred,APAC ,Y
+V185,Vendor 185 ,PREFERRED, APAC,N
+V186,Vendor 186 ,preferred,EMEA,N
+V187,Vendor  187,Preferred,emea,N
+V188, Vendor 188,PREFERRED,latam,N
+V189,VENDOR 189,Preferred ,EMEA,Y
+V190,VENDOR 190,Strategic,LATAM,N
+V191,Vendor 191,strategic,emea,Y
+V192,Vendor  192,Tactical, LATAM,y
+V193,VENDOR 193, Preferred,EMEA,Y
+V194,Vendor 194 ,Preferred,APAC,
+V195, Vendor 195,TACTICAL, EMEA,y
+V196,Vendor 196,Tactical,LATAM,Y
+V197,Vendor 197,Preferred,LATAM,Y
+V198,Vendor 198, Tactical,NA,Y
+V199, Vendor 199, Strategic,LATAM ,Y
+V200,Vendor  200,Strategic,NA,Y
+V201,Vendor 201,Tactical,EMEA,Y
+V202,Vendor 202,Tactical,NA,
+V203,VENDOR 203,tactical,APAC ,
+V204, Vendor 204,TACTICAL,APAC,
+V205,Vendor 205,TACTICAL, EMEA,Y
+V206,vendor 206,Preferred, LATAM,y
+V207,Vendor  207,Preferred,latam,
+V208,Vendor 208,Preferred ,emea,N
+V209,Vendor 209,Preferred ,NA ,N
+V210,Vendor  210,tactical,LATAM,Y
+V211,Vendor 211 ,Preferred ,na,y
+V212,Vendor  212,Preferred,emea,
+V213,Vendor 213,STRATEGIC,latam,Y
+V214,vendor 214,PREFERRED,latam,y
+V215,Vendor 215,tactical,LATAM,N
+V216,Vendor 216 ,Tactical , APAC,
+V217,Vendor 217, Tactical, NA,Y
+V218, Vendor 218,Strategic,na,Y
+V219, Vendor 219,Preferred,LATAM,y
+V220,Vendor 220 ,Tactical,APAC,Y
+V221,Vendor 221,strategic,NA,Y
+V222,Vendor  222, Tactical,apac,
+V223,Vendor  223,Preferred ,EMEA,N
+V224,VENDOR 224,Preferred ,EMEA,N
+V225,Vendor 225,Tactical,LATAM,y
+V226,Vendor 226 ,Tactical,APAC,N
+V227,Vendor 227 ,Preferred,EMEA,y
+V228,VENDOR 228,Preferred,NA,
+V229,Vendor  229,TACTICAL, LATAM,y
+V230,vendor 230,STRATEGIC,EMEA,N
+V231,VENDOR 231,Tactical ,APAC,Y
+V232,VENDOR 232,Preferred, NA,
+V233,Vendor 233,TACTICAL,NA ,N
+V234,Vendor 234,Tactical ,NA,
+V235,Vendor 235,Tactical,APAC,y
+V236,Vendor  236,Preferred,LATAM ,N
+V237,Vendor  237,Tactical, EMEA,Y
+V238,Vendor 238 ,Tactical,EMEA ,Y
+V239,Vendor  239,TACTICAL,EMEA,Y
+V240,VENDOR 240,Preferred ,LATAM,Y
+V241,Vendor 241,Strategic ,na,
+V242,Vendor 242 , Preferred,LATAM,N
+V243,Vendor  243,Strategic,APAC,Y
+V244,vendor 244,STRATEGIC,NA ,Y
+V245,VENDOR 245,Tactical,LATAM ,Y
+V246,vendor 246,Tactical,APAC,y
+V247,vendor 247,tactical,apac,N
+V248, Vendor 248,Strategic,NA,
+V249,Vendor 249 ,Tactical,latam,y
+V250,Vendor 250,Strategic,EMEA ,y
+V251,Vendor 251 ,Preferred,NA,
+V252,Vendor 252,STRATEGIC,emea,Y
+V253,Vendor  253,Preferred,NA,Y
+V254,vendor 254, Preferred,APAC,N
+V255, Vendor 255,Preferred,,Y
+V256,Vendor 256, Preferred,EMEA,y
+V257,Vendor 257,PREFERRED,LATAM,y
+V258,Vendor  258,Preferred ,EMEA ,y
+V259,VENDOR 259,preferred,EMEA ,
+V260,VENDOR 260,Strategic,APAC ,Y
+V261,Vendor 261,Tactical ,APAC,Y
+V262, Vendor 262,Strategic,EMEA,Y
+V263, Vendor 263,Preferred,NA,Y
+V264, Vendor 264,Tactical,EMEA,N
+V265, Vendor 265,Strategic,apac,N
+V266,VENDOR 266,STRATEGIC, APAC,y
+V267,Vendor 267,Strategic,LATAM,y
+V268,Vendor  268,Strategic ,NA,
+V269,Vendor  269,strategic,latam,y
+V270,vendor 270,tactical,APAC,Y
+V271, Vendor 271,Strategic,APAC ,y
+V272,Vendor 272,Preferred,NA,y
+V273,Vendor 273,Tactical,EMEA,N
+V274,Vendor 274,Strategic ,EMEA,Y
+V275, Vendor 275, Preferred, APAC,
+V276,Vendor  276,TACTICAL, LATAM,
+V277,Vendor 277,Strategic,EMEA,
+V278,Vendor 278, Preferred,LATAM,y
+V279, Vendor 279,TACTICAL,APAC,
+V280,Vendor  280,Tactical,latam,
+V281,VENDOR 281,Preferred, NA,
+V282,Vendor 282,Strategic, NA,N
+V283,VENDOR 283,Tactical,NA,Y
+V284,VENDOR 284,Preferred,APAC,N
+V285,VENDOR 285, Tactical,NA,Y
+V286, Vendor 286,tactical,EMEA ,N
+V287,vendor 287, Strategic,APAC,Y
+V288,Vendor 288,Tactical,EMEA,
+V289,Vendor  289,Tactical ,EMEA,
+V290,Vendor 290,STRATEGIC,APAC,
+V291,Vendor  291,TACTICAL, NA,N
+V292,vendor 292,,LATAM,
+V293,Vendor 293 ,preferred,LATAM,y
+V294,Vendor 294 ,Preferred,EMEA,Y
+V295,VENDOR 295,Preferred ,APAC,N
+V296, Vendor 296,Strategic,APAC,
+V297,Vendor  297,Strategic,apac,
+V298, Vendor 298,Preferred ,NA,Y
+V299,vendor 299,Tactical,latam,
+V300,vendor 300,Strategic,APAC,
+V301, Vendor 301,preferred,EMEA ,Y
+V302,vendor 302, Tactical, APAC,Y
+V303,VENDOR 303,strategic,emea,y
+V304,Vendor 304,Strategic,apac,y
+V305,Vendor 305,Strategic ,EMEA,Y
+V306,vendor 306,Preferred,LATAM,N
+V307,Vendor 307 ,Tactical,APAC,y
+V308,vendor 308,Tactical ,EMEA,Y
+V309,Vendor 309,Strategic , EMEA,
+V310,Vendor  310,Preferred ,LATAM,N
+V311,Vendor 311,Preferred, NA,
+V312, Vendor 312,preferred,NA,y
+V313,Vendor 313 ,preferred,apac,
+V314,Vendor 314,Tactical,NA ,N
+V315,Vendor  315,Tactical,APAC,Y
+V316,vendor 316,tactical,NA,Y
+V317,Vendor 317, Tactical,EMEA ,N
+V318, Vendor 318,Tactical,APAC,
+V319,VENDOR 319,Strategic ,APAC,
+V320,vendor 320,Preferred,,N
+V321,Vendor  321,preferred,apac,Y
+V322,Vendor  322,Preferred, NA,
+V323,Vendor 323,preferred,EMEA,y
+V324,Vendor 324,Preferred,APAC,N
+V325,Vendor 325 ,Strategic, LATAM,y
+V326,Vendor 326 ,Preferred,LATAM ,y
+V327,vendor 327,Tactical,NA,Y
+V328,Vendor 328,Strategic,NA,N
+V329,Vendor 329,Preferred,APAC,
+V330,Vendor 330,Strategic ,APAC,
+V331,Vendor 331,PREFERRED,LATAM,N
+V332,Vendor 332 ,Strategic,NA,Y
+V333,Vendor 333,Preferred , LATAM,
+V334,Vendor  334,PREFERRED,NA ,
+V335,Vendor 335,strategic,EMEA,
+V336, Vendor 336, Preferred,LATAM,Y
+V337,VENDOR 337, Strategic,EMEA,
+V338, Vendor 338,PREFERRED,emea,
+V339,Vendor 339,Strategic ,APAC ,y
+V340, Vendor 340,TACTICAL,APAC,Y
+V341,Vendor 341 ,preferred,LATAM,
+V342, Vendor 342,Strategic,NA,Y
+V343,Vendor  343,Strategic,EMEA,Y
+V344,Vendor 344,Preferred,EMEA,
+V345,Vendor 345 ,Tactical ,APAC,
+V346,Vendor 346,Tactical,LATAM ,Y
+V347,VENDOR 347,Tactical ,LATAM,Y
+V348,vendor 348,Strategic,APAC,Y
+V349,Vendor  349,Tactical ,LATAM,y
+V350,VENDOR 350, Tactical, APAC,N
+V351,Vendor  351,strategic,EMEA,
+V352,Vendor  352,STRATEGIC,na,y
+V353,Vendor 353,PREFERRED,NA ,y
+V354,Vendor 354,Strategic, EMEA,Y
+V355,VENDOR 355,Strategic,EMEA,N
+V356,Vendor 356 ,tactical, APAC,
+V357,Vendor  357,Preferred,latam,y
+V358,VENDOR 358,Strategic,APAC,
+V359,Vendor 359,Strategic,emea,y
+V360,Vendor 360,Tactical,NA,
+V361,vendor 361, Tactical,EMEA ,Y
+V362,Vendor  362,Strategic,APAC,Y
+V363,vendor 363,STRATEGIC,NA,N
+V364,vendor 364, Strategic,emea,Y
+V365,VENDOR 365, Preferred,APAC ,y
+V366,Vendor 366 ,PREFERRED,emea,y
+V367,VENDOR 367,Preferred ,LATAM,y
+V368,vendor 368,STRATEGIC,EMEA,y
+V369,Vendor  369,Preferred ,EMEA,Y
+V370,Vendor 370 ,TACTICAL,EMEA,Y
+V371,Vendor 371,TACTICAL,LATAM,N
+V372,Vendor 372 ,STRATEGIC,APAC ,
+V373, Vendor 373,Tactical ,APAC,N
+V374,VENDOR 374,,emea,
+V375,vendor 375,Strategic,EMEA,Y
+V376,vendor 376, Tactical,na,y
+V377, Vendor 377,Tactical,APAC,N
+V378,Vendor 378 ,Strategic,latam,N
+V379,Vendor 379 ,Tactical ,LATAM,Y
+V380,VENDOR 380,Preferred, LATAM,
+V381,Vendor 381 ,tactical,emea,N
+V382,VENDOR 382, Strategic,EMEA,
+V383,Vendor 383,preferred,emea,N
+V384,vendor 384, Strategic,latam,y
+V385,Vendor 385,Preferred ,apac,Y
+V386,vendor 386,Tactical ,EMEA,
+V387,vendor 387,Preferred ,EMEA,Y
+V388,Vendor 388,Tactical ,APAC,Y
+V389, Vendor 389,Strategic ,NA,
+V390, Vendor 390,Preferred,LATAM,
+V391,VENDOR 391,strategic, NA,N
+V392,VENDOR 392,Tactical, APAC,
+V393,vendor 393,STRATEGIC,APAC,Y
+V394,VENDOR 394,Tactical,na,Y
+V395,Vendor  395,STRATEGIC, NA,
+V396,Vendor 396 ,Preferred ,EMEA,
+V397,Vendor 397,preferred,EMEA,N
+V398,Vendor 398 , Tactical, APAC,N
+V399,VENDOR 399,Strategic,LATAM,N
+V400,Vendor  400,STRATEGIC,EMEA,Y
+V401, Vendor 401,Tactical ,NA,
+V402,Vendor 402 ,Tactical,NA,y
+V403,Vendor 403,Preferred ,NA,
+V404,Vendor 404 ,tactical, EMEA,
+V405,Vendor 405,Preferred, LATAM,N
+V406, Vendor 406,Tactical ,LATAM,y
+V407,Vendor 407 ,tactical,EMEA,
+V408,VENDOR 408,TACTICAL,LATAM,y
+V409,Vendor 409,PREFERRED,EMEA ,y
+V410,VENDOR 410, Tactical,EMEA,
+V411, Vendor 411,Strategic, NA,N
+V412,Vendor 412,Preferred ,EMEA,N
+V413,Vendor 413,STRATEGIC,NA ,
+V414,Vendor 414 ,Preferred,LATAM ,y
+V415,vendor 415,Strategic , NA,y
+V416,Vendor 416, Preferred,latam,N
+V417,Vendor 417, Tactical,NA,N
+V418,Vendor 418,Preferred ,NA,N
+V419,vendor 419,STRATEGIC,EMEA,y
+V420,Vendor  420,TACTICAL,NA,y
+V421, Vendor 421,PREFERRED,APAC,N
+V422,VENDOR 422,TACTICAL,LATAM,N
+V423,Vendor 423,Preferred,APAC ,y
+V424,Vendor 424,Preferred,EMEA,Y
+V425,vendor 425,Preferred,LATAM,y
+V426,Vendor 426,Tactical,APAC ,
+V427,Vendor 427,Strategic ,EMEA,
+V428,vendor 428,Tactical,NA ,y
+V429,Vendor 429 ,Tactical,EMEA,
+V430,vendor 430, Strategic,NA,Y
+V431,VENDOR 431,TACTICAL,apac,Y
+V432,Vendor  432,Preferred,latam,Y
+V433,Vendor 433,Strategic,LATAM ,
+V434, Vendor 434,strategic,latam,N
+V435,Vendor 435,preferred,EMEA,Y
+V436, Vendor 436,TACTICAL,APAC ,Y
+V437, Vendor 437,Tactical,NA,N
+V438,vendor 438,Tactical,na,y
+V439,vendor 439,STRATEGIC,EMEA,N
+V440, Vendor 440,preferred,APAC,y
+V441,Vendor 441 , Tactical,latam,y
+V442,vendor 442,Preferred ,emea,N
+V443, Vendor 443,Tactical,EMEA ,Y
+V444,Vendor 444,Tactical,emea,y
+V445,VENDOR 445,tactical,NA ,N
+V446, Vendor 446,Strategic ,emea,Y
+V447,VENDOR 447,Tactical ,LATAM ,y
+V448, Vendor 448,Preferred,APAC ,
+V449,Vendor 449,tactical,LATAM,Y
+V450,Vendor 450,Preferred,EMEA ,N
+V451,Vendor 451 ,Tactical,APAC,
+V452,Vendor 452,tactical,na,N
+V453,Vendor 453 ,Preferred,LATAM ,y
+V454,vendor 454,Strategic ,apac,Y
+V455,Vendor  455,tactical,emea,
+V456,Vendor 456 ,tactical,NA,
+V457,vendor 457,STRATEGIC,NA ,
+V458,VENDOR 458,Preferred,EMEA,y
+V459,vendor 459,PREFERRED,APAC,Y
+V460,VENDOR 460, Tactical,APAC ,Y
+V461,Vendor 461,STRATEGIC,LATAM,y
+V462,Vendor  462,Strategic,EMEA,N
+V463,VENDOR 463,Strategic,latam,
+V464,Vendor 464,Preferred, LATAM,N
+V465,Vendor  465,STRATEGIC,latam,y
+V466,VENDOR 466,strategic,APAC,N
+V467,,Preferred,EMEA,N
+V468,VENDOR 468,Preferred, LATAM,y
+V469,Vendor 469 ,Strategic, EMEA,
+V470,VENDOR 470,TACTICAL,APAC,N
+V471,Vendor 471,Tactical,LATAM,Y
+V472,Vendor 472,Strategic,EMEA ,N
+V473,vendor 473,Strategic,NA,N
+V474,Vendor  474, Preferred,APAC,Y
+V475, Vendor 475,Tactical ,LATAM,
+V476,Vendor  476,STRATEGIC,NA,Y
+V477,Vendor  477,Tactical ,APAC,
+V478,Vendor 478,Preferred, LATAM,y
+V479,Vendor 479, Tactical,EMEA,y
+V480,Vendor 480 , Tactical,APAC,N
+V481,Vendor 481,Strategic,APAC,N
+V482,vendor 482,Preferred,NA ,y
+V483,Vendor 483,Strategic ,LATAM,Y
+V484,Vendor  484,Preferred,LATAM ,y
+V485,vendor 485,Strategic,LATAM,
+V486, Vendor 486,Tactical,LATAM ,N
+V487,VENDOR 487,Preferred,emea,Y
+V488,Vendor  488, Preferred,NA,N
+V489,Vendor 489, Strategic,NA ,y
+V490,VENDOR 490, Strategic,na,Y
+V491,Vendor 491 ,Preferred , APAC,y
+V492,Vendor  492,PREFERRED,EMEA,
+V493,Vendor 493,Strategic ,LATAM ,y
+V494,VENDOR 494,Tactical,NA,Y
+V495,Vendor  495, Strategic, APAC,y
+V496,VENDOR 496,Preferred,LATAM,N
+V497,vendor 497,Preferred,NA,N
+V498,Vendor 498, Preferred,EMEA,Y
+V499,vendor 499,strategic,LATAM,N
+V500,Vendor  500,STRATEGIC,APAC,
