@@ -20,7 +20,6 @@ SELECT
     d.month_name,
     v.vendor_name,
     v.vendor_tier,
-    c.category_name,
     r.region_name,
     f.spend_amount,
     f.is_contract_compliant
@@ -40,13 +39,12 @@ CREATE VIEW analytics.vw_spend_summary AS
 SELECT
     year,
     month,
-    category_name,
     region_name,
     SUM(spend_amount) AS total_spend,
     AVG(CAST(is_contract_compliant AS FLOAT)) AS contract_compliance_rate
 FROM analytics.vw_procurement_spend
 GROUP BY
-    year, month, category_name, region_name;
+    year, month, region_name;
 
 -- View 3: Budget vs Actual
 
@@ -58,7 +56,6 @@ CREATE VIEW analytics.vw_budget_vs_actual AS
 SELECT
     d.year,
     d.month,
-    c.category_name,
     r.region_name,
     f.budgeted_spend,
     f.actual_spend,
@@ -77,10 +74,9 @@ GO
 CREATE VIEW analytics.vw_contract_compliance AS
 SELECT
     vendor_name,
-    category_name,
     region_name,
     COUNT(*) AS total_transactions,
     SUM(CASE WHEN is_contract_compliant = 1 THEN 1 ELSE 0 END) AS compliant_transactions,
     AVG(CAST(is_contract_compliant AS FLOAT)) AS compliance_rate
 FROM analytics.vw_procurement_spend
-GROUP BY vendor_name, category_name, region_name;
+GROUP BY vendor_name, region_name;
