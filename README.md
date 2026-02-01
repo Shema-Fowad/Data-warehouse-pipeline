@@ -68,11 +68,12 @@ I structured the database into logical schemas:
 **Fact Tables:**
 - `fact.fact_procurement_spend` – Grain: One row per line item on a purchase order
 - `fact.fact_budget_vs_actual` – Grain: One row per category per month
-
+- `fact.fact_contract_savings` – Grain: One record per contract per month
+  
 **Dimension Tables:**
 - `dim.dim_vendor` – SCD Type 1 (current state only)
 - `dim.dim_category` – Procurement category hierarchy
-- `dim.dim_region` – Geographic regions
+- `dim.dim_region` – Geographic regions (haven't added category name as of now)
 - `dim.dim_date` – Standard date dimension
 
 **Design Decisions:**
@@ -95,7 +96,7 @@ All calculations are performed **in SQL** (not in the BI layer) for:
 |-----|-----------|--------------|
 | Total Spend | SUM of invoice amounts | Executive reporting |
 | Spend by Vendor | Grouped by vendor dimension | Vendor consolidation analysis |
-| Spend by Category | Grouped by category hierarchy | Spend visibility |
+| Spend by Category | Grouped by category hierarchy | Spend visibility | (haven't added category name as of now)
 | Budget Variance | Actual vs. budgeted spend | Financial control |
 | Contract Compliance % | On-contract spend / total spend | Risk management |
 | Off-Contract Spend | Spend without contract coverage | Savings opportunity |
@@ -123,7 +124,7 @@ All calculations are performed **in SQL** (not in the BI layer) for:
 ### Current Limitations
 
 - **Full load only** – No incremental processing (future enhancement: implement MERGE/UPSERT)
-- **Manual execution** – Scripts run in SSMS (future: stored procedures + SQL Agent jobs)
+- **Manual execution** – Scripts run in SSMS (future: SQL Agent jobs)
 
 ---
 
@@ -133,7 +134,7 @@ All calculations are performed **in SQL** (not in the BI layer) for:
 **Audience:** CPO, Finance Leadership  
 **Questions Answered:**
 - What's our total spend this quarter vs. budget?
-- Which categories are over/under budget?
+- Which categories are over/under budget? (haven't added category name as of now)
 - What percentage of spend is contract-compliant?
 
 ### 2. Procurement Operations
@@ -141,7 +142,7 @@ All calculations are performed **in SQL** (not in the BI layer) for:
 **Questions Answered:**
 - Which vendors represent our highest spend concentration?
 - Where are we purchasing off-contract?
-- What's the month-over-month trend by category?
+- What's the month-over-month trend by category? (haven't added category name as of now only category_id is present)
 
 ### 3. Vendor Performance
 **Audience:** Sourcing Team  
@@ -156,11 +157,16 @@ All calculations are performed **in SQL** (not in the BI layer) for:
 
 ```
 ├── datasets/           # Sample CSV files (anonymized test data)
+│   ├── contracts
+│   └── erp
+│   └── finance
+│   └── vendor_master
 ├── scripts/
 │   ├── bronze/        # Raw data ingestion scripts
 │   ├── silver/        # Dimension and fact loading scripts
 │   ├── gold/          # Analytics view creation
-│   └── quality/       # Data quality checks (planned)
+│   └── 01.create_database.sql
+|   └── data_quality_check.sql      # Data quality checks (planned)
 ├── docs/
 │   ├── er_diagram.png
 │   └── naming_conventions.md
@@ -223,7 +229,6 @@ All calculations are performed **in SQL** (not in the BI layer) for:
 **Short-term:**
 - [ ] Add data quality reconciliation queries (source row counts vs. warehouse)
 - [ ] Implement incremental loading using MERGE statements
-- [ ] Create stored procedures with error handling
 
 **Medium-term:**
 - [ ] Add slowly changing dimension (SCD Type 2) logic for vendor address changes
