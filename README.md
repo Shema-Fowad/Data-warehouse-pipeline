@@ -81,6 +81,9 @@ I structured the database into logical schemas:
 - Implemented conformity across facts (shared dimension keys)
 - Denormalized category hierarchies for query performance
 
+
+<img width="937" height="1322" alt="er_diagram" src="https://github.com/user-attachments/assets/f5f4f85d-0c95-41e1-a693-cca0036af7fa" />
+
 ---
 
 ## Key Metrics & KPIs
