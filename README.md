@@ -133,47 +133,55 @@ All calculations are performed **in SQL** (not in the BI layer) for:
 
 ## Dashboards
 
-### 1. Executive Spend Overview
+### 1. Executive Spend Overview  
 **Audience:** CPO, Finance Leadership  
-**Questions Answered:**
-- What's our total spend this quarter vs. budget?
-- Which categories are over/under budget? (haven't added category name as of now)
-- What percentage of spend is contract-compliant?
 
-### 2. Procurement Operations
-**Audience:** Category Managers  
 **Questions Answered:**
-- Which vendors represent our highest spend concentration?
-- Where are we purchasing off-contract?
-- What's the month-over-month trend by category? (haven't added category name as of now only category_id is present)
+- What is our total procurement spend for the selected period?
+- How does actual spend compare to budget?
+- What percentage of transactions are contract-compliant?
+- Which vendors and regions drive the majority of spend?
 
-### 3. Vendor Performance
-**Audience:** Sourcing Team  
+---
+
+### 2. Procurement Operations  
+**Audience:** Category Managers, Procurement Operations  
+
 **Questions Answered:**
-- How much spend is concentrated in our top 10 vendors?
-- Which vendors have coverage under active contracts?
-- What's our contract compliance rate by vendor tier?
+- Which vendors represent the highest spend concentration?
+- Where is procurement spend occurring outside active contracts?
+- How does procurement spend trend month over month?
+- Which regions show the highest contract leakage?
 
+---
+
+### 3. Vendor Performance  
+**Audience:** Sourcing & Supplier Management Teams  
+
+**Questions Answered:**
+- How concentrated is spend among the top vendors?
+- Which vendors have the lowest contract compliance rates?
+- Which vendors operate most frequently without contract coverage?
+- How does vendor compliance vary across regions?
+- 
 ---
 
 ## Repository Structure
 
 ```
-├── datasets/           # Sample CSV files (anonymized test data)
-│   ├── contracts
-│   └── erp
-│   └── finance
-│   └── vendor_master
-├── scripts/
-│   ├── bronze/        # Raw data ingestion scripts
-│   ├── silver/        # Dimension and fact loading scripts
-│   ├── gold/          # Analytics view creation
-│   └── 01.create_database.sql
-|   └── data_quality_check.sql      # Data quality checks (planned)
-├── docs/
-│   ├── er_diagram.png
-│   └── naming_conventions.md
-└── README.md
+├───Data-warehouse-pipeline
+│   ├───datasets
+│   │   ├───contracts
+│   │   ├───erp
+│   │   ├───finance
+│   │   └───vendor_master
+│   ├───docs
+│   │   └───dashboards
+│   └───scripts
+│       ├───bronze            # Raw data ingestion scripts
+│       ├───gold              # Analytics view creation
+│       └───silver            # Dimension and fact loading scripts
+
 ```
 
 ---
